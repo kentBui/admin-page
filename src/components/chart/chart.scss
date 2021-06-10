@@ -1,0 +1,15 @@
+.chart {
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
+  &-title {
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  &-body {
+    height: 400px;
+    padding: 20px;
+  }
+}

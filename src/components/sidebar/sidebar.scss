@@ -1,0 +1,46 @@
+.sidebar {
+  width: 20%;
+  background-color: blueviolet;
+  color: white;
+
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+
+  &-wrapper {
+    padding: 20px;
+  }
+
+  &-menu {
+    margin-bottom: 20px;
+  }
+
+  &-title {
+    color: #aaa;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+
+  &-list {
+    &-item {
+      display: flex;
+      align-items: center;
+
+      margin-top: 6px;
+      padding: 4px;
+      border-radius: 10px;
+      transition: all 0.35s ease;
+      cursor: pointer;
+      svg {
+        margin-right: 15px;
+      }
+
+      &:hover,
+      &.active {
+        background-color: burlywood;
+        color: #222;
+      }
+    }
+  }
+}
