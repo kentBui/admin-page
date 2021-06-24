@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import "./product-list.scss";
 import { DataGrid, GridColDef } from "@material-ui/data-grid";
-import "./users-list.scss";
-import { DeleteOutlined, Edit } from "@material-ui/icons";
-import { userList } from "../../dataset/userlist";
+import { DeleteOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { productList } from "../../dataset/productList";
 
-const UsersList = () => {
-  const [data, setData] = useState(userList);
+const ProductList = () => {
+  const [data, setData] = useState(productList);
+  console.log(data);
 
   const handleDelete = (id: string) => {
     const tempData = data.filter((item) => item.id !== id);
@@ -14,34 +15,38 @@ const UsersList = () => {
   };
 
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 100 },
     {
-      field: "user",
-      headerName: "User",
-      width: 130,
+      field: "product",
+      headerName: "Product",
+      width: 160,
       renderCell: (params) => {
         return (
-          <div className="avatar">
-            <img src={params.row.avatar} alt={params.row.username} />
-            <div className="avatar-name">{params.row.username}</div>
+          <div className="image">
+            <img src={params.row.image} alt={params.row.productName} />
+            <div className="image-name">{params.row.productName}</div>
           </div>
         );
       },
     },
-    // { field: "username", headerName: "UserName", width: 130 },
     {
-      field: "email",
-      headerName: "Email",
-      width: 130,
+      field: "desc",
+      headerName: "Description",
+      width: 230,
     },
     {
       field: "status",
       headerName: "Status",
-      width: 100,
+      width: 120,
     },
     {
-      field: "transaction",
-      headerName: "Transaction",
+      field: "stock",
+      headerName: "Stock",
+      width: 160,
+    },
+    {
+      field: "price",
+      headerName: "Price",
       width: 160,
     },
     {
@@ -51,7 +56,7 @@ const UsersList = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/user/${params.row.id}`}>
+            <Link to={`/product/${params.row.id}`}>
               <button className="btn-edit">
                 Edit
                 {/* <Edit /> */}
@@ -69,12 +74,12 @@ const UsersList = () => {
     },
   ];
   return (
-    <div className="user-list" style={{ height: 400, width: "100%" }}>
-      <h2 className="user-list-title">User List</h2>
+    <div className="product-list" style={{ height: 400, width: "100%" }}>
+      <h2 className="user-list-title">Product List</h2>
       <DataGrid
         rows={data}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         checkboxSelection
         disableSelectionOnClick
       />
@@ -82,4 +87,4 @@ const UsersList = () => {
   );
 };
 
-export default UsersList;
+export default ProductList;

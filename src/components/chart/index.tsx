@@ -14,15 +14,19 @@ import "./chart.scss";
 
 interface ChartProps {
   title: string;
-  data: {
-    month: string;
-    "Active user": number;
-  }[];
-  dataKey: string | number | (() => any);
+  data: any[];
+  dataKeyX: string;
+  dataKeyLine: string | number | (() => any);
   grid?: boolean;
 }
 
-const Chart: React.FC<ChartProps> = ({ title, data, dataKey, grid }) => {
+const Chart: React.FC<ChartProps> = ({
+  title,
+  data,
+  dataKeyX,
+  dataKeyLine,
+  grid,
+}) => {
   return (
     <div className="chart">
       <h3 className="chart-title">{title}</h3>
@@ -30,12 +34,12 @@ const Chart: React.FC<ChartProps> = ({ title, data, dataKey, grid }) => {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             {grid && <CartesianGrid strokeDasharray="3 3" />}
-            <XAxis dataKey="month" />
+            <XAxis dataKey={dataKeyX} />
             <YAxis />
             <Legend />
             <Tooltip />
             <Line
-              dataKey={dataKey}
+              dataKey={dataKeyLine}
               type="monotone"
               stroke="#37fa10"
               activeDot={{ r: 8 }}

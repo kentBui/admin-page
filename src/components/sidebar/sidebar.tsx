@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   LineStyle,
   Timeline,
@@ -23,10 +24,12 @@ const SideBar = () => {
         <div className="sidebar-menu">
           <h3 className="sidebar-title">Dashboard</h3>
           <ul className="sidebar-list">
-            <li className="sidebar-list-item">
-              <LineStyle />
-              Home
-            </li>
+            <Link className="sidebar-link" to="/">
+              <li className="sidebar-list-item">
+                <LineStyle />
+                Home
+              </li>
+            </Link>
             <li className="sidebar-list-item">
               <Timeline />
               Analytics
@@ -40,22 +43,30 @@ const SideBar = () => {
         <div className="sidebar-menu">
           <h3 className="sidebar-title">Quick Menu</h3>
           <ul className="sidebar-list">
-            <li className="sidebar-list-item">
-              <Person />
-              Users
-            </li>
-            <li className="sidebar-list-item">
-              <SportsSoccer />
-              Products
-            </li>
-            <li className="sidebar-list-item">
-              <AttachMoney />
-              Trabsactions
-            </li>
-            <li className="sidebar-list-item">
-              <Equalizer />
-              Reports
-            </li>
+            <Link className="sidebar-link" to="/users">
+              <li className="sidebar-list-item">
+                <Person />
+                Users
+              </li>
+            </Link>
+            <Link className="sidebar-link" to="/products">
+              <li className="sidebar-list-item">
+                <SportsSoccer />
+                Products
+              </li>
+            </Link>
+            <Link className="sidebar-link" to="/transactions">
+              <li className="sidebar-list-item">
+                <AttachMoney />
+                Transactions
+              </li>
+            </Link>
+            <Link className="sidebar-link" to="/reports">
+              <li className="sidebar-list-item">
+                <Equalizer />
+                Reports
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebar-menu">

@@ -14,7 +14,8 @@ const HomePage = () => {
       <Chart
         title="Users Analytics"
         data={userData}
-        dataKey="Active user"
+        dataKeyX="month"
+        dataKeyLine="Active user"
         grid
       />
       <div className="home-widgets">

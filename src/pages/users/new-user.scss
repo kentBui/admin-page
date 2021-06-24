@@ -1,0 +1,38 @@
+.new-user {
+  &-form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-group {
+      width: 400px;
+      margin-right: 20px;
+    }
+  }
+
+  &-gender {
+    & > input {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    & > label {
+      margin-right: 10px;
+    }
+  }
+
+  &-select {
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  &-btn {
+    outline: none;
+    border: none;
+    background-color: rgb(65, 205, 240);
+    color: white;
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
